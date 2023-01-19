@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
+import userRoutes from "./routes/users.js";
 import colors from "colors"
 
 dotenv.config();
@@ -22,6 +23,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(bodyParser());
+
+/**
+ * Routes midleware
+ */
+app.use("/users",userRoutes)
 
 /**
  * Root route
